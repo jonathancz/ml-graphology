@@ -723,11 +723,11 @@ def extractSlant(img, words):
             result = " : Irregular slant behaviour"
 
         if angle == 0:
-            print "\n************************************************"
-            print "Slant determined to be straight."
+            print ("\n************************************************")
+            print ("Slant determined to be straight.")
         else:
-            print "\n************************************************"
-            print "Slant determined to be irregular."
+            print ("\n************************************************")
+            print ("Slant determined to be irregular.")
         cv2.imshow("Check Image", img)
         cv2.waitKey(0)
         cv2.destroyAllWindows()
@@ -736,16 +736,16 @@ def extractSlant(img, words):
             if angle == 0:
                 angle = 180
                 result = " : Irregular Slant"
-                print "Set as"+result
-                print "************************************************\n"
+                print ("Set as"+result)
+                print( "************************************************\n")
             else:
                 angle = 0
                 result = " : Straight/No Slant"
-                print "Set as"+result
-                print "************************************************\n"
+                print ("Set as"+result)
+                print ("************************************************\n")
         else:
-            print "No Change!"
-            print "************************************************\n"
+            print ("No Change!")
+            print ("************************************************\n")
 
     SLANT_ANGLE = angle
     # print ("Slant angle(degree): "+str(SLANT_ANGLE)+result)

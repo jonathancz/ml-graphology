@@ -143,7 +143,7 @@ def straighten(image):
 		cv2.drawContours(display,[box],0,(0,0,255),1)
 		cv2.rectangle(display,(x,y),( x + w, y + h ),(0,255,0),1)
 		'''
-        print angle
+        print (angle)
         angle_sum += angle
         countour_count += 1
     '''	
@@ -175,7 +175,7 @@ def straighten(image):
     # mean angle of the contours (not lines) is found
     mean_angle = angle_sum / countour_count
     BASELINE_ANGLE = mean_angle
-    print "Average baseline angle: "+str(mean_angle)
+    print ("Average baseline angle: "+str(mean_angle))
     return image
 
 
@@ -430,9 +430,9 @@ def extractLines(img):
     # print average_line_spacing
     # print lines_having_midzone_count
     # print i
-    print "Average letter size: "+str(average_letter_size)
-    print "Top margin relative to average letter size: "+str(relative_top_margin)
-    print "Average line spacing relative to average letter size: "+str(relative_line_spacing)
+    print ("Average letter size: "+str(average_letter_size))
+    print ("Top margin relative to average letter size: "+str(relative_top_margin))
+    print ("Average line spacing relative to average letter size: "+str(relative_line_spacing))
 
     return fineLines
 
@@ -536,7 +536,7 @@ def extractWords(image, lines):
     relative_word_spacing = average_word_spacing / LETTER_SIZE
     WORD_SPACING = relative_word_spacing
     # print "Average word spacing: "+str(average_word_spacing)
-    print "Average word spacing relative to average letter size: "+str(relative_word_spacing)
+    print ("Average word spacing relative to average letter size: "+str(relative_word_spacing))
 
     return words
 
@@ -680,7 +680,7 @@ def extractSlant(img, words):
     max_value = 0.0
     max_index = 4
     for index, value in enumerate(s_function):
-        print str(index)+" "+str(value)+" "+str(count_[index])
+        print (str(index)+" "+str(value)+" "+str(count_[index]))
         if (value > max_value):
             max_value = value
             max_index = index
@@ -714,7 +714,7 @@ def extractSlant(img, words):
     elif (max_index == 4):
         p = s_function[4] / s_function[3]
         q = s_function[4] / s_function[5]
-        print 'p='+str(p)+' q='+str(q)
+        print ('p='+str(p)+' q='+str(q))
         # the constants here are abritrary but I think suits the best
         if ((p <= 1.2 and q <= 1.2) or (p > 1.4 and q > 1.4)):
             angle = 0
@@ -728,9 +728,9 @@ def extractSlant(img, words):
             result = " : Irregular slant behaviour"
 
         if angle == 0:
-            print "Slant determined to be straight."
+            print ("Slant determined to be straight.")
         else:
-            print "Slant determined to be erratic."
+            print ("Slant determined to be erratic.")
         '''
 		type = raw_input("Enter if okay, else enter 'c' to change: ")
 		if type=='c':
@@ -743,7 +743,7 @@ def extractSlant(img, words):
 		'''
 
     SLANT_ANGLE = angle
-    print "Slant angle(degree): "+str(SLANT_ANGLE)+result
+    print ("Slant angle(degree): "+str(SLANT_ANGLE)+result)
     return
 
 
@@ -786,7 +786,7 @@ def barometer(image):
     PEN_PRESSURE = average_intensity
     # print total_intensity
     # print pixel_count
-    print "Average pen pressure: "+str(average_intensity)
+    print ("Average pen pressure: "+str(average_intensity))
 
     return
 

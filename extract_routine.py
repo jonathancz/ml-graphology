@@ -26,5 +26,5 @@ with open("raw_feature_list", "a") as label:
         print>>label, ''
         count += 1
         progress = (count*100)/len(files)
-        print str(count)+' '+file_name+' '+str(progress)+'%'
-    print "Done!"
+        print(str(count)+' '+file_name+' '+str(progress)+'%')
+    print('Done!')
